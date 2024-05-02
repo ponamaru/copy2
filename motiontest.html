@@ -1,0 +1,142 @@
+<html>
+<body>
+<img src="stickhead.png" id="stickhead" class="red" width="200">
+</body>
+<img src="stick.png" id="stickbody" width="200">
+<img src="stick.png" id="leftleg" class="leftleg" width="200">
+<img src="stick.png" id="rightleg" class="rightleg" width="200">
+	<style>
+		#stickhead {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#stickbody {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#leftleg {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#rightleg {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+<style>
+.red {
+    animation: floating-y 1.8s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes floating-y {
+      0% {
+        transform: translateY(-2%);
+      }
+      100% {
+        transform: translateY(2%);
+      }
+}
+.blue {
+    animation: floating 1.8s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes floating {
+      0% {
+        transform: rotate(45deg);
+      }
+      100% {
+        transform: rotate(-45deg);
+      }  
+}
+.rlm {
+    animation: floati 1.8s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes floati {
+      0% {
+        transform: rotate(-45deg);
+      }
+      100% {
+        transform: rotate(45deg);
+      }  
+}
+.null {
+    animation: floatin 1.8s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes floatin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }  
+}
+</style>
+<script>
+function toggleClass() {
+  const element = document.getElementById("stickhead");
+  if (element.classList.contains("red")) {
+    element.classList.remove("red");
+    element.classList.add("nll");
+  } else {
+    element.classList.remove("nll");
+    element.classList.add("red");
+  }
+}
+</script>
+<script>
+function toggleClass2() {
+  const element = document.getElementById("leftleg");
+  if (element.classList.contains("leftleg")) {
+    element.classList.remove("leftleg");
+    element.classList.add("blue");
+  } else {
+    element.classList.remove("blue");
+    element.classList.add("leftleg");
+  }
+}
+
+function toggleClass3() {
+  const element = document.getElementById("rightleg");
+  if (element.classList.contains("rightleg")) {
+    element.classList.remove("rightleg");
+    element.classList.add("rlm");
+  } else {
+    element.classList.remove("rlm");
+    element.classList.add("rightleg");
+  }
+}
+</script>
+<script>
+addEventListener( "keydown", keydownfunc );
+
+//キーが押されたときに呼び出される関数
+function keydownfunc( event ) {
+
+	//押されたボタンに割り当てられた数値（すうち）を、key_codeに代入
+	var key_code = event.keyCode;
+
+	if( key_code === 77 ) {
+        toggleClass();
+        toggleClass2();
+        toggleClass3();
+}
+}
+</script>
+<script>
+var y = 0;
+var x = 0;
+document.getElementById( 'stickhead' ).style.top = y + "px";
+document.getElementById( 'stickhead' ).style.left = x + "px";
+
+document.getElementById( 'stickbody' ).style.top = y -10 + "px";
+document.getElementById( 'stickbody' ).style.left = x -5 + "px";
+
+document.getElementById( 'leftleg' ).style.top = y +14 + "px";
+document.getElementById( 'leftleg' ).style.left = x -5 + "px";
+
+document.getElementById( 'rightleg' ).style.top = y +14 + "px";
+document.getElementById( 'rightleg' ).style.left = x -5 + "px";
+</script>
+</html>

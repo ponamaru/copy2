@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Game test</title>
+	<style>
+		#rico {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#ri {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#area {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+</head>
+<div style="text-align: center;">
+<img id="img1" src="car.png" alt="サンプル画像" width="800" style="justify-content: center">
+</div>
+<div id="messbox">
+<div id="textbox">
+<p id="text"></p>
+</div>
+</div>
+<script>
+
+</script>
+<body>
+<img id="rico" src="目.png">
+<script>
+var y = 300;
+var x = 700;
+	document.getElementById( 'rico' ).style.top = y + "px";
+	document.getElementById( 'rico' ).style.left = x + "px";
+
+addEventListener( "keydown", keydownfunc );
+
+		//キーが押されたときに呼び出される関数
+function keydownfunc( event ) {
+
+			//押されたボタンに割り当てられた数値（すうち）を、key_codeに代入
+	var key_code = event.keyCode;
+
+        if(x > 10) {
+	if( key_code === 37 ) x -= 5;	
+	}
+        if(x < 1100) {
+	if( key_code === 39 ) x += 5;
+        }
+
+	//りこちゃんの画像の位置（いち）を反映（はんえい）させる
+	document.getElementById( 'rico' ).style.top = y + "px";
+	document.getElementById( 'rico' ).style.left = x + "px";
+
+		}
+
+	</script>
+</body>
+
+<script>
+//参考：https://qiita.com/KurachiWeb/items/8f14c4ac40e35660d7bd
+document.addEventListener('keydown', event => {
+    if (event.code === 'Slash') {
+	const changeimg = document.getElementById("img1");
+        changeimg.src = "rico.png";
+    }
+});
+</script>
+<img src="59.png" id="enemy" width="100">
+<script>
+var dx = rico.x - enemy.x; 
+var dy = rico.y - enemy.y; 
+if(dx * dx + dy * dy < (40 + 10) * (40 + 10)){
+    alert('hello');
+}
+</script>
+<body>
+Test<br />
+<canvas id="canvas"></canvas>
+</body>
+
+<script>
+document.write( '<img id="ri" src="59.png" width="200">' );
+
+//キャラクターの位置
+var y2 = 0;
+var x2 = 0;
+
+//なにかキーが押されたとき、keydownfuncという関数を呼び出す
+addEventListener( "keydown", keydownfunc );
+
+//キーが押されたときに呼び出される関数
+function keydownfunc( event ) {
+
+	//押されたボタンに割り当てられた数値（すうち）を、key_codeに代入
+	var key_code = event.keyCode;
+
+	if( key_code === 83 ) x2 -= 32;		//「sボタン」が押されたとき、xの値から32を引き算する
+	if( key_code === 87 ) y2 -= 32;		//「wボタン」が押されたとき、yの値から32を引き算する
+	if( key_code === 68 ) x2 += 32;		//「dボタン」が押されたとき、xの値に32を足し算する
+	if( key_code === 88 ) y2 += 32;		//「xボタン」が押されたとき、yの値に32を足し算する
+
+	//りこちゃんの画像の位置（いち）を反映（はんえい）させる
+	document.getElementById( 'ri' ).style.top = y2 + "px";
+	document.getElementById( 'ri' ).style.left = x2 + "px";
+
+}
+</script>
+<script>
+		addEventListener( "keydown", keydownfunc );
+
+		function keydownfunc( event ) {
+
+	        var key_code = event.keyCode;
+
+			if( key_code === 82 ) alert('x'+ x2 + 'y' + y2);
+                }
+</script>
+<div id="area">zキー</div>
+<script>
+var nowtext = -1;
+var array = ['リンゴ', 'バナナ', 'イチゴ'];
+</script>
+<script>
+var textX = 192;
+var textY = 640;
+document.getElementById( 'area' ).style.top = textY + "px";
+document.getElementById( 'area' ).style.left = textX + "px";
+
+addEventListener( "keydown", keydownfunc );
+
+//キーが押されたときに呼び出される関数
+function keydownfunc( event ) {
+
+	//押されたボタンに割り当てられた数値（すうち）を、key_codeに代入
+	var key_code = event.keyCode;
+
+	if( key_code === 90 ) {
+	if(nowtext > 1) {
+	  nowtext -= 2;
+	document.getElementById("area").innerText = array[nowtext];
+	} else {
+	  nowtext += 1;
+	document.getElementById("area").innerText = array[nowtext];
+	}
+        }
+}
+</script>
+<script>
+
+</script>
+<script>
+addEventListener( "keydown", keydownfunc );
+
+//キーが押されたときに呼び出される関数
+function keydownfunc( event ) {
+
+	//押されたボタンに割り当てられた数値（すうち）を、key_codeに代入
+	var key_code = event.keyCode;
+
+	if( key_code === 56 ) {
+        alert(nowtext);
+        }
+}
+</script>
+<style>
+html, body {
+    overflow: hidden;
+}
+</style>
+
+</html>
